@@ -1,8 +1,6 @@
-package miniCastle.repository;
+package Mini_Castle.app.model.repository;
 
-
-import miniCastle.dao.Gear;
-
+import Mini_Castle.app.entity.Gear;
 
 public class GearRepository {
 

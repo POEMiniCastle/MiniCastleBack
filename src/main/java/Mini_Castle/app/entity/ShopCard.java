@@ -1,85 +1,30 @@
-package miniCastle.entity;
-
-import java.util.List;
+package Mini_Castle.app.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
-@Table(name = "shop_card_Dto")
+@Table(name = "shopCard")
+@NoArgsConstructor
+@Getter
+@Setter
 
 public class ShopCard {
 
-	@Column(name = "card_id")
-	private int cardId;
-
-	@Column(name = "shop_id")
-	private int shopId;
-
-	@Column(name = "loot_id")
-	private int lootId;
+	@Id
+	@PrimaryKeyJoinColumn(name = "card_id")
+	private Integer Id;
 
 	@Column(name = "price")
-	private int price;
+	private Integer price;
 
 	@Column(name = "quantity")
-	private int quantity;
+	private Integer quantity;
 
-	@ManyToMany
-	@JoinTable(name = "card_shop_card", joinColumns = @JoinColumn(name = "shop_id"), inverseJoinColumns = @JoinColumn(name = "card_id"))
-	private List<Card> shopCards;
-
-	@ManyToMany(mappedBy = "shopCards")
-	private List<LootTable> lootTables;
-
-	public ShopCard() {
-	}
-
-	public ShopCard(int cardId, int shopId, int lootId, int price, int quantity) {
-		this.cardId = cardId;
-		this.shopId = shopId;
-		this.lootId = lootId;
-		this.price = price;
-		this.quantity = quantity;
-	}
-
-	public int getCardId() {
-		return cardId;
-	}
-
-	public void setCardId(int cardId) {
-		this.cardId = cardId;
-	}
-
-	public int getShopId() {
-		return shopId;
-	}
-
-	public void setShopId(int shopId) {
-		this.shopId = shopId;
-	}
-
-	public int getLootId() {
-		return lootId;
-	}
-
-	public void setLootId(int lootId) {
-		this.lootId = lootId;
-	}
-
-	public int getPrice() {
-		return price;
-	}
-
-	public void setPrice(int price) {
-		this.price = price;
-	}
-
-	public int getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
-
+	@OneToOne
+	@JoinColumn(name = "card_id", referencedColumnName = "card_id")
+	private Card card;
+	
 }

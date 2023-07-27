@@ -1,81 +1,83 @@
-package miniCastle.entity;
-
-import java.util.List;
+package Mini_Castle.app.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
-@Table(name = "monster_card_Dto")
+@Table(name = "monsterCard")
+@NoArgsConstructor
+@Getter
+@Setter
 
 public class MonsterCard {
-	@Column(name = "card_id")
-	private int cardId;
 
-	@Column(name = "monster_id")
-	private int monsterId;
+	@Id
+	@PrimaryKeyJoinColumn(name = "card_id")
+	private Integer Id;
 
 	@Column(name = "damage")
-	private int damage;
+	private Integer damage;
 
 	@Column(name = "hp")
-	private int hp;
+	private Integer hp;
 
 	@Column(name = "xp_reward")
-	private int xpReward;
+	private Integer xpReward;
 
-	@ManyToMany
-	@JoinTable(name = "card_monster_card", joinColumns = @JoinColumn(name = "monster_id"), inverseJoinColumns = @JoinColumn(name = "card_id"))
-	private List<Card> monsterCards;
+	@OneToOne
+	@JoinColumn(name = "card_id", referencedColumnName = "card_id")
+	private Card card;
 
-	public MonsterCard() {
-	}
-
-	public MonsterCard(int cardId, int monsterId, int damage, int hp, int xpReward) {
-		this.cardId = cardId;
-		this.monsterId = monsterId;
+	public MonsterCard(Integer cardId, Integer damage, Integer hp, Integer xpReward, Card card) {
+		this.Id = cardId;
 		this.damage = damage;
 		this.hp = hp;
 		this.xpReward = xpReward;
+		this.card = card;
 	}
 
-	public int getCardId() {
-		return cardId;
+	public Integer getCardId() {
+		return Id;
 	}
 
-	public void setCardId(int cardId) {
-		this.cardId = cardId;
+	public void setCardId(Integer cardId) {
+		this.Id = cardId;
 	}
 
-	public int getMonsterId() {
-		return monsterId;
-	}
-
-	public void setMonsterId(int monsterId) {
-		this.monsterId = monsterId;
-	}
-
-	public int getDamage() {
+	public Integer getDamage() {
 		return damage;
 	}
 
-	public void setDamage(int damage) {
+	public void setDamage(Integer damage) {
 		this.damage = damage;
 	}
 
-	public int getHp() {
+	public Integer getHp() {
 		return hp;
 	}
 
-	public void setHp(int hp) {
+	public void setHp(Integer hp) {
 		this.hp = hp;
 	}
 
-	public int getXpReward() {
+	public Integer getXpReward() {
 		return xpReward;
 	}
 
-	public void setXpReward(int xpReward) {
+	public void setXpReward(Integer xpReward) {
 		this.xpReward = xpReward;
 	}
+
+	public Card getCard() {
+		return card;
+	}
+
+	public void setCard(Card card) {
+		this.card = card;
+	}
+
+	
 
 }

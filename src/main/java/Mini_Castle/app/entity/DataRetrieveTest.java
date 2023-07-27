@@ -1,4 +1,4 @@
-package miniCastle.entity;
+package Mini_Castle.app.entity;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;

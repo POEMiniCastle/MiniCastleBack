@@ -1,6 +1,6 @@
-package miniCastle.repository;
+package Mini_Castle.app.model.repository;
 
-import miniCastle.dao.TrapCard;
+import Mini_Castle.app.entity.TrapCard;
 
 public class TrapCardRepository {
 	

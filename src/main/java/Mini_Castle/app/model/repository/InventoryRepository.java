@@ -1,6 +1,6 @@
-package miniCastle.repository;
+package Mini_Castle.app.model.repository;
 
-import miniCastle.dao.Inventory;
+import Mini_Castle.app.entity.Inventory;
 
 public class InventoryRepository {
 	

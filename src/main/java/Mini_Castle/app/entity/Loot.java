@@ -1,21 +1,26 @@
 package Mini_Castle.app.entity;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "gear")
+@Table(name = "loot")
 @NoArgsConstructor
 @Getter
 @Setter
 
-public class Gear {
-	
+public class Loot {
+
 	@Id
-	@Column(name = "gear_slot_id")
+	@Column(name = "loot_id")
 	private Integer Id;
+
+	@Column(name = "gear_slot_id")
+	private Integer gearSlotId;
 
 	@Column(name = "damage")
 	private Integer damage;
@@ -23,10 +28,10 @@ public class Gear {
 	@Column(name = "armor")
 	private Integer armor;
 
-	@Column(name = "price")
-	private Integer price;
+	@Column(name = "name")
+	private String name;
 
-	@ManyToOne
-	@JoinColumn(name = "character_id")
-	private Character character;
+	@ManyToMany(mappedBy = "loots")
+	private List<Card> cards;
+
 }

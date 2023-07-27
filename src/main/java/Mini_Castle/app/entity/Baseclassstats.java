@@ -6,26 +6,39 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "Baseclassstats")
+@Table(name = "BaseClassStats")
 @NoArgsConstructor
 @Getter
 @Setter
-public class Baseclassstats {
+
+public class BaseClassStats {
+
     @Id
+    @Column(name="class_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int class_id;
-    @Column
+    private Integer id;
+
+    @Column(name="name")
     private String name;
-    @Column
-    private String base_hp;
-    @Column
-    private String base_armor;
-    @Column
-    private String base_damage;
-    @Column
+
+    @Column(name="base_hp")
+    private Integer base_hp;
+
+    @Column(name="base_armor")
+    private Integer base_armor;
+
+    @Column(name="base_damage")
+    private Integer base_damage;
+
+    @Column(name="skill_name")
     private String skill_name;
-    @Column
+
+    @Column(name="skill_description")
     private String skill_description;
-    @Column
+
+    @Column(name="image_path")
     private String imagePath;
+
+    @OneToOne(mappedBy = "classStats")
+	private Character character;
 }

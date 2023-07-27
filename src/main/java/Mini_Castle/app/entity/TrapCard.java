@@ -1,70 +1,69 @@
-package miniCastle.entity;
-
-import java.util.List;
+package Mini_Castle.app.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
-@Table(name = "trap_card_Dto")
+@Table(name = "trapCard")
+@NoArgsConstructor
+@Getter
+@Setter
 
 public class TrapCard {
 
-	@Column(name = "card_id")
-	private int cardId;
-
-	@Column(name = "trap_id")
-	private int trapId;
+	@Id
+	@PrimaryKeyJoinColumn(name = "card_id")
+	private Integer Id;
 
 	@Column(name = "skill_check")
-	private int skillCheck;
+	private Integer skillCheck;
 
 	@Column(name = "damage")
-	private int damage;
+	private Integer damage;
 
-	@ManyToMany
-	@JoinTable(name = "card_trap_card", joinColumns = @JoinColumn(name = "trap_id"), inverseJoinColumns = @JoinColumn(name = "card_id"))
-	private List<Card> trapCards;
+	@OneToOne
+	@JoinColumn(name = "card_id", referencedColumnName = "card_id")
+	private Card card;
 
-	public TrapCard() {
-	}
-
-	public TrapCard(int cardId, int trapId, int skillCheck, int damage) {
-		this.cardId = cardId;
-		this.trapId = trapId;
+	public TrapCard(Integer cardId, Integer skillCheck, Integer damage, Card card) {
+		this.Id = cardId;
 		this.skillCheck = skillCheck;
 		this.damage = damage;
+		this.card = card;
 	}
 
-	public int getCardId() {
-		return cardId;
+	public Integer getCardId() {
+		return Id;
 	}
 
-	public void setCardId(int cardId) {
-		this.cardId = cardId;
+	public void setCardId(Integer cardId) {
+		this.Id = cardId;
 	}
 
-	public int getTrapId() {
-		return trapId;
-	}
-
-	public void setTrapId(int trapId) {
-		this.trapId = trapId;
-	}
-
-	public int getSkillCheck() {
+	public Integer getSkillCheck() {
 		return skillCheck;
 	}
 
-	public void setSkillCheck(int skillCheck) {
+	public void setSkillCheck(Integer skillCheck) {
 		this.skillCheck = skillCheck;
 	}
 
-	public int getDamage() {
+	public Integer getDamage() {
 		return damage;
 	}
 
-	public void setDamage(int damage) {
+	public void setDamage(Integer damage) {
 		this.damage = damage;
+	}
+
+	public Card getCard() {
+		return card;
+	}
+
+	public void setCard(Card card) {
+		this.card = card;
 	}
 
 }

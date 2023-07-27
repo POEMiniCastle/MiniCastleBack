@@ -1,27 +1,14 @@
-package miniCastle.repository;
+package Mini_Castle.app.model.repository;
 
-import miniCastle.dao.MonsterCard;
+import Mini_Castle.app.entity.MonsterCard;
 
-public class MonsterCardRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
 
-	public MonsterCard findById(int monsterId)
-	{
-		//TODO implement the SQL request with SpringBoot
-		return null;
-	}
+import java.util.List;
+
+public interface MonsterCardRepository extends JpaRepository<MonsterCard, Integer> {
+    List<MonsterCard> findAllMonsterCardByOrderByIdAsc();
+
+    MonsterCard findMonsterCardById(int id);
 	
-	public void update(MonsterCard monsterCard)
-	{
-		//TODO implement the SQL request with SpringBoot
-	}
-	
-	public void insert(MonsterCard monsterCard)
-	{
-		//TODO implement the SQL request with SpringBoot
-	}
-	
-	public void delete(int monsterId)
-	{
-		//TODO implement the SQL request with SpringBoot
-	}
 }

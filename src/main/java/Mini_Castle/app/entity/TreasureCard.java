@@ -1,56 +1,24 @@
-package miniCastle.entity;
-
-import java.util.List;
+package Mini_Castle.app.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "treasure_card")
+@NoArgsConstructor
+@Getter
+@Setter
 
 public class TreasureCard {
-	@Column(name = "card_id")
-	private int cardId;
 
-	@Column(name = "loot_id")
-	private int lootId;
+	@Id
+	@PrimaryKeyJoinColumn(name = "card_id")
+	private Integer Id;
 
-	@Column(name = "treasure_id")
-	private int treasureId;
-
-	@OneToMany(mappedBy = "treasureCard")
-	private List<LootTable> lootTables;
-
-	public TreasureCard() {
-	}
-
-	public TreasureCard(int cardId, int lootId, int treasureId) {
-		this.cardId = cardId;
-		this.lootId = lootId;
-		this.treasureId = treasureId;
-	}
-
-	public int getCardId() {
-		return cardId;
-	}
-
-	public void setCardId(int cardId) {
-		this.cardId = cardId;
-	}
-
-	public int getLootId() {
-		return lootId;
-	}
-
-	public void setLootId(int lootId) {
-		this.lootId = lootId;
-	}
-
-	public int getTreasureId() {
-		return treasureId;
-	}
-
-	public void setTreasureId(int treasureId) {
-		this.treasureId = treasureId;
-	}
+	@OneToOne
+	@JoinColumn(name = "card_id", referencedColumnName = "card_id")
+	private Card card;
 
 }
