@@ -2,6 +2,8 @@ package Mini_Castle.app.entity;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,7 +19,7 @@ public class Loot {
 
 	@Id
 	@Column(name = "loot_id")
-	private Integer Id;
+	private Integer id;
 
 	@Column(name = "gear_slot_id")
 	private Integer gearSlotId;
@@ -28,9 +30,10 @@ public class Loot {
 	@Column(name = "armor")
 	private Integer armor;
 
-	@Column(name = "name")
-	private String name;
+	@Column(name = "item_name")
+	private String itemName;
 
+	@JsonIgnore
 	@ManyToMany(mappedBy = "loots")
 	private List<Card> cards;
 

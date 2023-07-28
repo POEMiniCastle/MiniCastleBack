@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "BaseClassStats")
+@Table(name = "Baseclassstats")
 @NoArgsConstructor
 @Getter
 @Setter
@@ -41,4 +41,18 @@ public class BaseClassStats {
 
     @OneToOne(mappedBy = "classStats")
 	private Character character;
+
+    public BaseClassStats(Integer id, String name, Integer base_hp, Integer base_armor, Integer base_damage,
+            String skill_name, String skill_description, String imagePath, Character character) {
+        this.id = id;
+        this.name = name;
+        this.base_hp = base_hp;
+        this.base_armor = base_armor;
+        this.base_damage = base_damage;
+        this.skill_name = skill_name;
+        this.skill_description = skill_description;
+        this.imagePath = imagePath;
+        this.character = character;
+    }
+
 }

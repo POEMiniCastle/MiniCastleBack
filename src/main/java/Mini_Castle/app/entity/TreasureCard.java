@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "treasure_card")
+@Table(name = "treasurecard")
 @NoArgsConstructor
 @Getter
 @Setter
@@ -14,8 +14,9 @@ import lombok.Setter;
 public class TreasureCard {
 
 	@Id
-	@PrimaryKeyJoinColumn(name = "card_id")
-	private Integer Id;
+    @Column(name="TreasureCard_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
 	@OneToOne
 	@JoinColumn(name = "card_id", referencedColumnName = "card_id")

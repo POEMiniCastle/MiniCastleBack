@@ -38,10 +38,9 @@ public class Card {
     @ManyToMany
     @JoinTable(
         name="card_loot",
-        joinColumns=@JoinColumn(name="card_id"), 
+        joinColumns= @JoinColumn(name="card_id"), 
         inverseJoinColumns = @JoinColumn(name="loot_id"))
     private List<Loot> loots;
-    
     
     public Card(Integer card_id, String card_name, String card_type, String description, Integer score_value,
             String card_image_path) {

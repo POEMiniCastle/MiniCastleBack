@@ -16,7 +16,7 @@ import lombok.Setter;
 public class Character {
 	@Id
 	@Column(name = "character_id")
-	private Integer Id;
+	private Integer id;
 
 	@Column(name = "level")
 	private Integer level;

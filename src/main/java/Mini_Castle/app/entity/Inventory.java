@@ -22,7 +22,7 @@ public class Inventory {
 
 	@Id
 	@PrimaryKeyJoinColumn(name="character_id")
-	private Integer Id;
+	private Integer id;
 
 	@OneToOne
 	@JoinColumn(name="character_id", referencedColumnName = "character_id")

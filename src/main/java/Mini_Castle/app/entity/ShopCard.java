@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "shopCard")
+@Table(name = "shopcard")
 @NoArgsConstructor
 @Getter
 @Setter
@@ -14,8 +14,9 @@ import lombok.Setter;
 public class ShopCard {
 
 	@Id
-	@PrimaryKeyJoinColumn(name = "card_id")
-	private Integer Id;
+    @Column(name="ShopCard_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
 	@Column(name = "price")
 	private Integer price;

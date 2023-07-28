@@ -10,10 +10,11 @@ import java.util.List;
 @CrossOrigin("*")
 @RequiredArgsConstructor
 @RequestMapping("api/monstercard")
+
 public class MonsterCardController {
     private final MonsterCardRepository repository;
 
     @GetMapping
-    public List<MonsterCard> listAllMonsterCard(){ return  repository.findAllMonsterCardByOrderByIdAsc();}
+    public List<MonsterCard> listAllMonstercard(){ return  repository.findAllMonstercardByOrderByCardIdAsc();}
 
 }

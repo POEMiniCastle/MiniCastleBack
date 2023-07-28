@@ -15,7 +15,7 @@ public class Gear {
 	
 	@Id
 	@Column(name = "gear_slot_id")
-	private Integer Id;
+	private String id;
 
 	@Column(name = "damage")
 	private Integer damage;

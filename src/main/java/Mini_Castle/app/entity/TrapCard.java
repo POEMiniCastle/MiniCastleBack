@@ -6,16 +6,17 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "trapCard")
+@Table(name = "trapcard")
 @NoArgsConstructor
 @Getter
 @Setter
 
 public class TrapCard {
 
-	@Id
-	@PrimaryKeyJoinColumn(name = "card_id")
-	private Integer Id;
+    @Id
+    @Column(name="TrapCard_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
 	@Column(name = "skill_check")
 	private Integer skillCheck;
@@ -28,18 +29,18 @@ public class TrapCard {
 	private Card card;
 
 	public TrapCard(Integer cardId, Integer skillCheck, Integer damage, Card card) {
-		this.Id = cardId;
+		this.id = cardId;
 		this.skillCheck = skillCheck;
 		this.damage = damage;
 		this.card = card;
 	}
 
 	public Integer getCardId() {
-		return Id;
+		return id;
 	}
 
 	public void setCardId(Integer cardId) {
-		this.Id = cardId;
+		this.id = cardId;
 	}
 
 	public Integer getSkillCheck() {

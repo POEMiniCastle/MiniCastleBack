@@ -14,7 +14,7 @@ import lombok.Setter;
 public class Player {
 	@Id
 	@Column(name = "player_id")
-	private Integer Id;
+	private Integer id;
 
 	@Column(name = "mail")
 	private String mail;

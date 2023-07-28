@@ -7,8 +7,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface MonsterCardRepository extends JpaRepository<MonsterCard, Integer> {
-    List<MonsterCard> findAllMonsterCardByOrderByIdAsc();
+    List<MonsterCard> findAllMonstercardByOrderByCardIdAsc();
 
-    MonsterCard findMonsterCardById(int id);
+    MonsterCard findMonstercardById(int id);
 	
 }
