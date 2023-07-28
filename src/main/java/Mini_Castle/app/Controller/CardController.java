@@ -3,6 +3,8 @@ package Mini_Castle.app.Controller;
 import Mini_Castle.app.entity.Card;
 import Mini_Castle.app.model.repository.CardRepository;
 import lombok.RequiredArgsConstructor;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,7 +15,8 @@ import java.util.List;
 @RequestMapping("api/card")
 
 public class CardController {
-    private final CardRepository repository;
+	@Autowired
+    private CardRepository repository;
 
     @GetMapping
     public List<Card> listAllCard(){ return  repository.findAllCardByOrderByIdAsc();}
