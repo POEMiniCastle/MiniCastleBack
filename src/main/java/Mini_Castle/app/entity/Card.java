@@ -51,5 +51,62 @@ public class Card {
         this.score_value = score_value;
         this.card_image_path = card_image_path;
     }
+
+    public Card() {}
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getCard_name() {
+		return card_name;
+	}
+
+	public void setCard_name(String card_name) {
+		this.card_name = card_name;
+	}
+
+	public String getCard_type() {
+		return card_type;
+	}
+
+	public void setCard_type(String card_type) {
+		this.card_type = card_type;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Integer getScore_value() {
+		return score_value;
+	}
+
+	public void setScore_value(Integer score_value) {
+		this.score_value = score_value;
+	}
+
+	public String getCard_image_path() {
+		return card_image_path;
+	}
+
+	public void setCard_image_path(String card_image_path) {
+		this.card_image_path = card_image_path;
+	}
+
+	public List<Loot> getLoots() {
+		return loots;
+	}
+
+	public void setLoots(List<Loot> loots) {
+		this.loots = loots;
+	}
     
 }

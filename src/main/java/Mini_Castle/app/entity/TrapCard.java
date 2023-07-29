@@ -35,12 +35,14 @@ public class TrapCard {
 		this.card = card;
 	}
 
+	public TrapCard() {}
+	
 	public Integer getCardId() {
 		return id;
 	}
 
-	public void setCardId(Integer cardId) {
-		this.id = cardId;
+	public void setCardId(Integer id) {
+		this.id = id;
 	}
 
 	public Integer getSkillCheck() {

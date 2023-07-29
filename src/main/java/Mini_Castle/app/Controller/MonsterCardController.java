@@ -11,13 +11,12 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
-@RequestMapping("api/monstercard")
 
 public class MonsterCardController {
 	@Autowired
     private MonsterCardRepository repository;
 
-    @GetMapping
+    @GetMapping("api/monstercard")
     public List<MonsterCard> listAllMonstercard(){ return  repository.findAllMonstercardByOrderByCardIdAsc();}
 
 }

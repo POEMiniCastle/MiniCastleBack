@@ -38,4 +38,48 @@ public class MonsterCard {
 		this.xpReward = xpReward;
 		this.card = card;
 	}
+	
+	public MonsterCard() {}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Integer getDamage() {
+		return damage;
+	}
+
+	public void setDamage(Integer damage) {
+		this.damage = damage;
+	}
+
+	public Integer getHp() {
+		return hp;
+	}
+
+	public void setHp(Integer hp) {
+		this.hp = hp;
+	}
+
+	public Integer getXpReward() {
+		return xpReward;
+	}
+
+	public void setXpReward(Integer xpReward) {
+		this.xpReward = xpReward;
+	}
+
+	public Card getCard() {
+		return card;
+	}
+
+	public void setCard(Card card) {
+		this.card = card;
+	}
+	
+	
 }
