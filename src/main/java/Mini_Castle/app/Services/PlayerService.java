@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import Mini_Castle.app.Dto.PlayerDto;
+import Mini_Castle.app.Dto.RegistrationPlayerDto;
 import Mini_Castle.app.entity.Player;
 import Mini_Castle.app.model.repository.PlayerRepository;
 
@@ -14,17 +15,19 @@ public class PlayerService {
 	private PlayerRepository repository;
 	
 	public boolean checkIfUsernameExists(String username) {
-		if(repository.findByUsername(username) != null) return true;
-		return false;
+		return repository.findByUsername(username) != null;
 	}
 	
 	public boolean checkIfMailExists(String mail) {
-		if(repository.findByMail(mail) != null) return true;
-		return false;
+		return repository.findByMail(mail) != null;
 	}
 
-	public Player createPlayer(PlayerDto playerDto) {
-		Player player = new Player(playerDto.getMail(), playerDto.getNickname(), playerDto.getPasswd(), 0);
-		return repository.save(player);
+	public PlayerDto createPlayer(RegistrationPlayerDto playerDto) {
+		Player player = repository.save(new Player(playerDto.getMail(), playerDto.getUsername(), playerDto.getPasswd(), 0));
+		return new PlayerDto(player);
+	}
+
+	public PlayerDto findPlayerByUsername(String username) {
+		return new PlayerDto(repository.findByUsername(username));
 	}
 }

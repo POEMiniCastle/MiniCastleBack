@@ -15,4 +15,6 @@ public interface PlayerRepository extends JpaRepository<Player, Integer> {
 	Player findByMail(String mail);
 	
 	Player findByUsername(String username);
+	
+	Player save(Player player);
 }

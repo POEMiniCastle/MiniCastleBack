@@ -1,21 +1,44 @@
 package Mini_Castle.app.Dto;
 
+import Mini_Castle.app.entity.Character;
+import Mini_Castle.app.entity.Player;
+
 public class PlayerDto {
+	private Integer id;
 
 	private String mail;
 
 	private String username;
 
-	private String passwd;
+	private Integer bestScore;
+
+	private Character character;
 
 	
-	public PlayerDto(String mail, String username, String passwd) {
+	public PlayerDto(Player player) {
+		this.id = player.getId();
+		this.mail = player.getMail();
+		this.username = player.getUsername();
+		this.bestScore = player.getBestScore();
+		this.character = player.getCharacter();
+	}
+	
+	public PlayerDto(Integer id, String mail, String username, Integer bestScore, Character character) {
+		this.id = id;
 		this.mail = mail;
 		this.username = username;
-		this.passwd = passwd;
+		this.bestScore = bestScore;
+		this.character = character;
 	}
 
 	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public String getMail() {
 		return mail;
 	}
@@ -23,18 +46,26 @@ public class PlayerDto {
 		this.mail = mail;
 	}
 
-	public String getNickname() {
+	public String getUsername() {
 		return username;
 	}
-	public void setNickname(String nickname) {
-		this.username = nickname;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	public String getPasswd() {
-		return passwd;
+	public Integer getBestScore() {
+		return bestScore;
 	}
-	public void setPasswd(String passwd) {
-		this.passwd = passwd;
+	public void setBestScore(Integer bestScore) {
+		this.bestScore = bestScore;
 	}
 
+	public Character getCharacter() {
+		return character;
+	}
+	public void setCharacter(Character character) {
+		this.character = character;
+	}
+	
+	
 }

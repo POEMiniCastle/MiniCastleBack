@@ -50,10 +50,10 @@ public class Player {
 		this.mail = mail;
 	}
 
-	public String getNickname() {
+	public String getUsername() {
 		return username;
 	}
-	public void setNickname(String nickname) {
+	public void setUsername(String nickname) {
 		this.username = nickname;
 	}
 
