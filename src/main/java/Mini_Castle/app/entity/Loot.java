@@ -2,6 +2,8 @@ package Mini_Castle.app.entity;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,6 +33,7 @@ public class Loot {
 	@Column(name = "name")
 	private String name;
 
+	@JsonIgnore
 	@ManyToMany(mappedBy = "loots")
 	private List<Card> cards;
 
