@@ -50,3 +50,10 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Docker ###
+docker-compose.yml
+*.env
+mybb/
+mariadb/
+postgres/
