@@ -13,12 +13,18 @@ import java.util.List;
 @RequiredArgsConstructor
 
 public class MonsterCardController {
+	
 	@Autowired
     private MonsterCardRepository repository;
 
     @GetMapping("api/monstercard")
     public List<MonsterCard> listAllMonstercard(){ 
     	return  repository.findAllMonstercardByOrderByCardIdAsc();
-    	}
+    }
+    
+    @GetMapping
+    public MonsterCard getInformation(@RequestBody Integer id) {
+    	return repository.findMonstercardById(id);
+    }
 
 }
