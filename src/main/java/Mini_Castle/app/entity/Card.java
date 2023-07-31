@@ -9,7 +9,6 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "card")
-@NoArgsConstructor
 @Getter
 @Setter
 

@@ -7,7 +7,6 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "monstercard")
-@NoArgsConstructor
 @Getter
 @Setter
 
