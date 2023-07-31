@@ -5,10 +5,9 @@ import java.util.List;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpClientErrorException;
 
+import Mini_Castle.app.Dto.CardDto;
 import Mini_Castle.app.entity.Card;
 import Mini_Castle.app.model.repository.CardRepository;
 
@@ -22,17 +21,18 @@ public class CardServices {
 		return repository.findAll();
 	}
 	
-	public List<Card> randomlyPickNineCards(){
+	public List<CardDto> randomlyPickNineCards(){
 		Random rand = new Random();
-		List<Card> draw = new ArrayList<>();
-		List<Card> temp = getAllCards();
-		for(Card z : temp) {
+		List<CardDto> draw = new ArrayList<>();
+		List<CardDto> temp = new ArrayList<>();
+		
+		for(Card z : getAllCards()) {
 			if(z.getCard_type().equalsIgnoreCase("Monster") || z.getCard_type().equalsIgnoreCase("Trap")) {
-				draw.add(z);
+				CardDto x = new CardDto(z.getId(), z.getCard_name(), z.getCard_type(), z.getDescription(), z.getScore_value(), z.getCard_image_path());
+				draw.add(x);
 			}
 		}
 		
-		temp.clear();
 		for (int i = 0; i <= 8; i++) {
 			int randomNumber = rand.nextInt(draw.size());
 			temp.add(draw.get(randomNumber));

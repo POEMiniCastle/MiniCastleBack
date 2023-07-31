@@ -17,6 +17,8 @@ public class MonsterCardController {
     private MonsterCardRepository repository;
 
     @GetMapping("api/monstercard")
-    public List<MonsterCard> listAllMonstercard(){ return  repository.findAllMonstercardByOrderByCardIdAsc();}
+    public List<MonsterCard> listAllMonstercard(){ 
+    	return  repository.findAllMonstercardByOrderByCardIdAsc();
+    	}
 
 }

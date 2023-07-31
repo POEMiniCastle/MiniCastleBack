@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import Mini_Castle.app.Dto.CardDto;
 import Mini_Castle.app.Services.CardServices;
 import Mini_Castle.app.entity.Card;
 import lombok.RequiredArgsConstructor;
@@ -27,7 +28,7 @@ public class CardController {
     }
 
     @GetMapping("api/random")
-    public List<Card> randomPick(){
+    public List<CardDto> randomPick(){
     	return service.randomlyPickNineCards();
     }
 }
