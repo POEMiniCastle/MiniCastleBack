@@ -12,23 +12,19 @@ public class PlayerDto {
 
 	private Integer bestScore;
 
-	private Character character;
-
 	
 	public PlayerDto(Player player) {
 		this.id = player.getId();
 		this.mail = player.getMail();
 		this.username = player.getUsername();
 		this.bestScore = player.getBestScore();
-		this.character = player.getCharacter();
 	}
 	
-	public PlayerDto(Integer id, String mail, String username, Integer bestScore, Character character) {
+	public PlayerDto(Integer id, String mail, String username, Integer bestScore) {
 		this.id = id;
 		this.mail = mail;
 		this.username = username;
 		this.bestScore = bestScore;
-		this.character = character;
 	}
 
 	
@@ -59,13 +55,5 @@ public class PlayerDto {
 	public void setBestScore(Integer bestScore) {
 		this.bestScore = bestScore;
 	}
-
-	public Character getCharacter() {
-		return character;
-	}
-	public void setCharacter(Character character) {
-		this.character = character;
-	}
-	
 	
 }

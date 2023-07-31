@@ -1,7 +1,5 @@
 package Mini_Castle.app.Controller;
 
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +13,6 @@ import Mini_Castle.app.Dto.ConnexionPlayerDto;
 import Mini_Castle.app.Dto.PlayerDto;
 import Mini_Castle.app.Dto.RegistrationPlayerDto;
 import Mini_Castle.app.Services.PlayerService;
-import Mini_Castle.app.entity.Player;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @Controller
