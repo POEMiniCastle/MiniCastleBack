@@ -9,4 +9,7 @@ import Mini_Castle.app.entity.TrapCard;
 public interface TrapCardRepository extends JpaRepository<TrapCard, Integer> {
 	
 	List<TrapCard> findAllTrapcardByOrderByIdAsc();
+	
+	TrapCard findTrapcardByCardId(int id);
+	
 }

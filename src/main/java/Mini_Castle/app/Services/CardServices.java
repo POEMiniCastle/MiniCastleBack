@@ -15,7 +15,7 @@ import Mini_Castle.app.model.repository.CardRepository;
 public class CardServices {
 
 	@Autowired
-	CardRepository repository;
+	private CardRepository repository;
 	
 	public List<Card> getAllCards(){
 		return repository.findAll();

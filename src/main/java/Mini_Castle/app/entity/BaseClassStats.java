@@ -54,5 +54,7 @@ public class BaseClassStats {
         this.imagePath = imagePath;
         this.character = character;
     }
+    
+    public BaseClassStats() { }
 
 }
