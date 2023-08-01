@@ -42,6 +42,8 @@ public class BaseClassStats {
     @OneToOne(mappedBy = "classStats")
 	private Character character;
 
+    public BaseClassStats() {}
+    
     public BaseClassStats(Integer id, String name, Integer base_hp, Integer base_armor, Integer base_damage,
             String skill_name, String skill_description, String imagePath, Character character) {
         this.id = id;
