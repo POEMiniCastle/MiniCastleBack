@@ -12,7 +12,6 @@ public class CardDto {
 	
 	public CardDto(Integer id, String card_name, String card_type, String description, Integer score_value,
 			String card_image_path) {
-		super();
 		this.id = id;
 		this.card_name = card_name;
 		this.card_type = card_type;

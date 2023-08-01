@@ -15,7 +15,7 @@ import Mini_Castle.app.model.repository.CardRepository;
 public class CardServices {
 
 	@Autowired
-	CardRepository repository;
+	private CardRepository repository;
 	
 	public List<Card> getAllCards(){
 		return repository.findAll();
@@ -28,8 +28,7 @@ public class CardServices {
 		
 		for(Card z : getAllCards()) {
 			if(z.getCard_type().equalsIgnoreCase("Monster") || z.getCard_type().equalsIgnoreCase("Trap")) {
-				CardDto x = new CardDto(z.getId(), z.getCard_name(), z.getCard_type(), z.getDescription(), z.getScore_value(), z.getCard_image_path());
-				draw.add(x);
+				draw.add(new CardDto(z.getId(), z.getCard_name(), z.getCard_type(), z.getDescription(), z.getScore_value(), z.getCard_image_path()));
 			}
 		}
 		

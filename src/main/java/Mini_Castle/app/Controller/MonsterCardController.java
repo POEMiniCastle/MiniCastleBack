@@ -1,24 +1,27 @@
 package Mini_Castle.app.Controller;
 
-import Mini_Castle.app.entity.MonsterCard;
-import Mini_Castle.app.model.repository.MonsterCardRepository;
-import lombok.RequiredArgsConstructor;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import Mini_Castle.app.Dto.MonsterDto;
+import Mini_Castle.app.Services.MonsterCardServices;
+import lombok.RequiredArgsConstructor;
 @RestController
 @CrossOrigin("*")
 @RequiredArgsConstructor
 
 public class MonsterCardController {
+	
 	@Autowired
-    private MonsterCardRepository repository;
+    private MonsterCardServices services;
 
-    @GetMapping("api/monstercard")
-    public List<MonsterCard> listAllMonstercard(){ 
-    	return  repository.findAllMonstercardByOrderByCardIdAsc();
-    	}
+    
+    @GetMapping("api/monstercard/{id}")
+    public MonsterDto getInformation(@PathVariable int id) {
+    	return services.getInformationMonster(id);
+    }
 
 }
