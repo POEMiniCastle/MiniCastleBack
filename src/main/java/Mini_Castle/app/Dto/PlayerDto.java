@@ -1,7 +1,7 @@
 package Mini_Castle.app.Dto;
 
-import Mini_Castle.app.entity.Character;
 import Mini_Castle.app.entity.Player;
+import Mini_Castle.app.entity.Character;
 
 public class PlayerDto {
 	private Integer id;
@@ -12,12 +12,15 @@ public class PlayerDto {
 
 	private Integer bestScore;
 
+	private Character character;
+
 	
 	public PlayerDto(Player player) {
 		this.id = player.getId();
 		this.mail = player.getMail();
 		this.username = player.getUsername();
 		this.bestScore = player.getBestScore();
+		this.character = player.getCharacter();
 	}
 	
 	public PlayerDto(Integer id, String mail, String username, Integer bestScore) {
@@ -55,5 +58,14 @@ public class PlayerDto {
 	public void setBestScore(Integer bestScore) {
 		this.bestScore = bestScore;
 	}
+
+	public Character getCharacter() {
+		return character;
+	}
+
+	public void setCharacter(Character character) {
+		this.character = character;
+	}
+	
 	
 }

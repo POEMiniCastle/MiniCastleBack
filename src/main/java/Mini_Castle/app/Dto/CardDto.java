@@ -70,7 +70,4 @@ public class CardDto {
 		this.card_image_path = card_image_path;
 	}
 	
-	
-	
-	
 }
