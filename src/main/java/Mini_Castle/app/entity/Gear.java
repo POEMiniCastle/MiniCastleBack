@@ -1,15 +1,9 @@
 package Mini_Castle.app.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Table(name = "gear")
-@NoArgsConstructor
-@Getter
-@Setter
 
 public class Gear {
 	
@@ -29,4 +23,48 @@ public class Gear {
 	@ManyToOne
 	@JoinColumn(name = "character_id")
 	private Character character;
+
+	Gear(){}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public Integer getDamage() {
+		return damage;
+	}
+
+	public void setDamage(Integer damage) {
+		this.damage = damage;
+	}
+
+	public Integer getArmor() {
+		return armor;
+	}
+
+	public void setArmor(Integer armor) {
+		this.armor = armor;
+	}
+
+	public Integer getPrice() {
+		return price;
+	}
+
+	public void setPrice(Integer price) {
+		this.price = price;
+	}
+
+	public Character getCharacter() {
+		return character;
+	}
+
+	public void setCharacter(Character character) {
+		this.character = character;
+	}
+
+	
 }

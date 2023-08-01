@@ -3,14 +3,9 @@ package Mini_Castle.app.entity;
 import java.util.List;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Table(name = "card")
-@Getter
-@Setter
 
 public class Card {
 
@@ -52,6 +47,7 @@ public class Card {
     }
 
     public Card() {}
+
 	public Integer getId() {
 		return id;
 	}

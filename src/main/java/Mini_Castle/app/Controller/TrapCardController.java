@@ -8,11 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import Mini_Castle.app.Dto.TrapDto;
 import Mini_Castle.app.Services.TrapCardServices;
-import lombok.RequiredArgsConstructor;
 
 @RestController
 @CrossOrigin("*")
-@RequiredArgsConstructor
 
 public class TrapCardController {
 

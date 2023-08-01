@@ -5,15 +5,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Table(name = "loot")
-@NoArgsConstructor
-@Getter
-@Setter
 
 public class Loot {
 
@@ -36,5 +30,57 @@ public class Loot {
 	@JsonIgnore
 	@ManyToMany(mappedBy = "loots")
 	private List<Card> cards;
+
+	public Loot(){}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Integer getGearSlotId() {
+		return gearSlotId;
+	}
+
+	public void setGearSlotId(Integer gearSlotId) {
+		this.gearSlotId = gearSlotId;
+	}
+
+	public Integer getDamage() {
+		return damage;
+	}
+
+	public void setDamage(Integer damage) {
+		this.damage = damage;
+	}
+
+	public Integer getArmor() {
+		return armor;
+	}
+
+	public void setArmor(Integer armor) {
+		this.armor = armor;
+	}
+
+	public String getItemName() {
+		return itemName;
+	}
+
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
+	}
+
+	public List<Card> getCards() {
+		return cards;
+	}
+
+	public void setCards(List<Card> cards) {
+		this.cards = cards;
+	}
+
+	
 
 }

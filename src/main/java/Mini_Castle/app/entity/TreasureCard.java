@@ -1,15 +1,9 @@
 package Mini_Castle.app.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Table(name = "treasurecard")
-@NoArgsConstructor
-@Getter
-@Setter
 
 public class TreasureCard {
 
@@ -22,4 +16,23 @@ public class TreasureCard {
 	@JoinColumn(name = "card_id", referencedColumnName = "card_id")
 	private Card card;
 
+	public TreasureCard(){}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Card getCard() {
+		return card;
+	}
+
+	public void setCard(Card card) {
+		this.card = card;
+	}
+
+	
 }

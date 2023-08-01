@@ -10,11 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 import Mini_Castle.app.Dto.CardDto;
 import Mini_Castle.app.Services.CardServices;
 import Mini_Castle.app.entity.Card;
-import lombok.RequiredArgsConstructor;
 
 @RestController
 @CrossOrigin("*")
-@RequiredArgsConstructor
 //@RequestMapping("api/card")
 
 public class CardController {

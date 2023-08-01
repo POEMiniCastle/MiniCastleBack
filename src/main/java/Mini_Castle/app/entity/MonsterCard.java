@@ -1,14 +1,9 @@
 package Mini_Castle.app.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Table(name = "monstercard")
-@Getter
-@Setter
 
 public class MonsterCard {
 
@@ -30,6 +25,8 @@ public class MonsterCard {
 	@JoinColumn(name = "card_id", referencedColumnName = "card_id")
 	private Card card;
 
+	public MonsterCard() {}
+	
 	public MonsterCard(Integer cardId, Integer damage, Integer hp, Integer xpReward, Card card) {
 		this.id = cardId;
 		this.damage = damage;
@@ -37,8 +34,6 @@ public class MonsterCard {
 		this.xpReward = xpReward;
 		this.card = card;
 	}
-	
-	public MonsterCard() {}
 
 	public Integer getId() {
 		return id;

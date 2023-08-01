@@ -8,10 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import Mini_Castle.app.Dto.MonsterDto;
 import Mini_Castle.app.Services.MonsterCardServices;
-import lombok.RequiredArgsConstructor;
+
 @RestController
 @CrossOrigin("*")
-@RequiredArgsConstructor
 
 public class MonsterCardController {
 	

@@ -1,15 +1,9 @@
 package Mini_Castle.app.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Table(name = "shopcard")
-@NoArgsConstructor
-@Getter
-@Setter
 
 public class ShopCard {
 
@@ -27,5 +21,40 @@ public class ShopCard {
 	@OneToOne
 	@JoinColumn(name = "card_id", referencedColumnName = "card_id")
 	private Card card;
+	
+	public ShopCard(){}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Integer getPrice() {
+		return price;
+	}
+
+	public void setPrice(Integer price) {
+		this.price = price;
+	}
+
+	public Integer getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
+	}
+
+	public Card getCard() {
+		return card;
+	}
+
+	public void setCard(Card card) {
+		this.card = card;
+	}
+
 	
 }
