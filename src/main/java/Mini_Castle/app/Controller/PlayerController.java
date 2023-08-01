@@ -41,6 +41,10 @@ public class PlayerController {
 		if (!service.checkIfUsernameExists(playerLogs.getUsername())) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "There's no account with this username.");
 		}
-		return new ResponseEntity<PlayerDto>(service.findPlayerByUsername(playerLogs.getUsername()), HttpStatus.CREATED);
+		PlayerDto player = service.connectToPlayer(playerLogs);
+		if(player == null) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Wrong password");
+		}
+		return new ResponseEntity<PlayerDto>(player, HttpStatus.CREATED);
 	}
 }

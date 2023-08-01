@@ -7,7 +7,7 @@ public class ConnexionPlayerDto {
 	private String passwd;
 
 	
-	public ConnexionPlayerDto(String mail, String username, String passwd) {
+	public ConnexionPlayerDto(String username, String passwd) {
 		this.username = username;
 		this.passwd = passwd;
 	}

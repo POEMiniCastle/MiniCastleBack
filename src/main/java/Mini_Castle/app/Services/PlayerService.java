@@ -3,6 +3,7 @@ package Mini_Castle.app.Services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import Mini_Castle.app.Dto.ConnexionPlayerDto;
 import Mini_Castle.app.Dto.PlayerDto;
 import Mini_Castle.app.Dto.RegistrationPlayerDto;
 import Mini_Castle.app.entity.Player;
@@ -27,7 +28,11 @@ public class PlayerService {
 		return new PlayerDto(player);
 	}
 
-	public PlayerDto findPlayerByUsername(String username) {
-		return new PlayerDto(repository.findByUsername(username));
+	public PlayerDto connectToPlayer(ConnexionPlayerDto dto) {
+		Player player = repository.findByUsername(dto.getUsername());
+		if(player == null || !player.getPasswd().equals(dto.getPasswd())) {
+			return null;
+		}
+		return new PlayerDto(player);
 	}
 }

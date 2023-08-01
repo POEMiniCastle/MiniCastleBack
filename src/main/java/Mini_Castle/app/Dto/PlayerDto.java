@@ -1,6 +1,7 @@
 package Mini_Castle.app.Dto;
 
-import Mini_Castle.app.entity.Character;
+import java.util.Objects;
+
 import Mini_Castle.app.entity.Player;
 
 public class PlayerDto {
@@ -54,6 +55,19 @@ public class PlayerDto {
 	}
 	public void setBestScore(Integer bestScore) {
 		this.bestScore = bestScore;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PlayerDto other = (PlayerDto) obj;
+		return Objects.equals(bestScore, other.bestScore) && Objects.equals(mail, other.mail)
+				&& Objects.equals(username, other.username);
 	}
 	
 }
