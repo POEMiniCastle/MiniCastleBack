@@ -13,7 +13,7 @@ import lombok.Setter;
 public class TrapCard {
 
     @Id
-    @Column(name="TrapCard_id")
+    @Column(name="trapcard_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
@@ -35,12 +35,12 @@ public class TrapCard {
 	}
 
 	public TrapCard() {}
-	
-	public Integer getCardId() {
+
+	public Integer getId() {
 		return id;
 	}
 
-	public void setCardId(Integer id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -67,5 +67,7 @@ public class TrapCard {
 	public void setCard(Card card) {
 		this.card = card;
 	}
+	
+	
 
 }

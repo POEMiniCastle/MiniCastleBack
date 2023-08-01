@@ -1,14 +1,13 @@
 package Mini_Castle.app.Controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import Mini_Castle.app.entity.TrapCard;
-import Mini_Castle.app.model.repository.TrapCardRepository;
+import Mini_Castle.app.Dto.TrapDto;
+import Mini_Castle.app.Services.TrapCardServices;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -18,9 +17,11 @@ import lombok.RequiredArgsConstructor;
 public class TrapCardController {
 
 	@Autowired
-	TrapCardRepository repository;
+	private TrapCardServices services;
 	
-    @GetMapping("api/trapcard")
-    public List<TrapCard> listAllTrapcard(){ return  repository.findAllTrapcardByOrderByIdAsc();}
+    @GetMapping("api/trapcard/{id}")
+    public TrapDto listAllTrapcard(@PathVariable int id){ 
+    	return services.getInformationTrap(id);
+    	}
 
 }
