@@ -1,6 +1,7 @@
 package Mini_Castle.app.Services;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
 import Mini_Castle.app.entity.Card;
+import Mini_Castle.app.Dto.CardDto;
 import Mini_Castle.app.model.repository.CardRepository;
 
 @SpringBootTest
@@ -47,4 +49,20 @@ public class CardServiceTest {
 		assertEquals(9, service.randomlyPickNineCards().size());
 	}
 	
+	@Test
+	public void given10Cards_WhenRandomlyPickNineCards_ShouldReturn9CardsOrderedByLocalIdsFrom0() {
+		Mockito.when(repository.findAll()).thenReturn(list);
+		List<CardDto> cards = service.randomlyPickNineCards();
+		boolean test = true;
+		if(cards.get(0).getLocalID() != 0) {
+			test = false;
+		}
+		for (int i = 1; i < cards.size(); i++) {
+			if(cards.get(i).getLocalID() != cards.get(i-1).getLocalID()+1) {
+				test = false;
+			}
+		}
+		
+		assertTrue(test);
+	}
 }

@@ -24,11 +24,11 @@ public class CardControllerTest {
 	
 	@Test
 	public void whenListAllCard_ShouldCallService() throws Exception {
-		Mockito.when(service.getAllCards()).thenReturn(null);
+		Mockito.when(service.getAllCardsFromDatabase()).thenReturn(null);
 		mvc.perform(MockMvcRequestBuilders.get("/api/card"))
 				.andReturn()
 				.getResponse();
-		Mockito.verify(service, Mockito.times(1)).getAllCards();
+		Mockito.verify(service, Mockito.times(1)).getAllCardsFromDatabase();
 	}
 	
 	@Test
