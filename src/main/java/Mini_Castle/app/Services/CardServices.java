@@ -23,19 +23,24 @@ public class CardServices {
 	
 	public List<CardDto> randomlyPickNineCards(){
 		Random rand = new Random();
+		List<Card> cards = getAllCards();
 		List<CardDto> draw = new ArrayList<>();
 		List<CardDto> temp = new ArrayList<>();
 		
-		for(Card z : getAllCards()) {
-			if(z.getCard_type().equalsIgnoreCase("Monster") || z.getCard_type().equalsIgnoreCase("Trap")) {
-				draw.add(new CardDto(z.getId(), z.getCard_name(), z.getCard_type(), z.getDescription(), z.getScore_value(), z.getCard_image_path()));
+		for(int i = 0 ; i < cards.size(); i++) {
+			if(cards.get(i).getCard_type().equalsIgnoreCase("Monster") || cards.get(i).getCard_type().equalsIgnoreCase("Trap")) {
+				CardDto dto = new CardDto(cards.get(i));
+				draw.add(dto);
 			}
 		}
 		
-		for (int i = 0; i <= 8; i++) {
+		for(int i = 0; i <= 8; i++) {
 			int randomNumber = rand.nextInt(draw.size());
-			temp.add(draw.get(randomNumber));
+				
+			temp.add(new CardDto(draw.get(randomNumber),i));
 		}
+
+	
 		return temp;
 	}
 }
