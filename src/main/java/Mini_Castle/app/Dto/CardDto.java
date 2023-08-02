@@ -1,14 +1,18 @@
 package Mini_Castle.app.Dto;
 
+import Mini_Castle.app.entity.Card;
+
 public class CardDto {
 	
 	private Integer id;
+	private Integer localID;
 	private String card_name;
 	private String card_type;
 	private String description;
 	private Integer score_value;
 	private String card_image_path;
 	
+	public CardDto() { }
 	
 	public CardDto(Integer id, String card_name, String card_type, String description, Integer score_value,
 			String card_image_path) {
@@ -19,8 +23,32 @@ public class CardDto {
 		this.score_value = score_value;
 		this.card_image_path = card_image_path;
 	}
+
+	public CardDto(Card card) {
+		this.id = card.getId();
+		this.card_name = card.getCard_name();
+		this.card_type = card.getCard_type();
+		this.description = card.getDescription();
+		this.score_value = card.getScore_value();
+		this.card_image_path = card.getCard_image_path();
+	}
 	
-	public CardDto() { }
+	public CardDto(CardDto card, Integer localID) {
+		this.id = card.getId();
+		this.localID = localID;
+		this.card_name = card.getCard_name();
+		this.card_type = card.getCard_type();
+		this.description = card.getDescription();
+		this.score_value = card.getScore_value();
+		this.card_image_path = card.getCard_image_path();
+	}
+	public Integer getLocalID() {
+		return localID;
+	}
+
+	public void setLocalID(Integer localID) {
+		this.localID = localID;
+	}
 
 	public Integer getId() {
 		return id;
@@ -69,5 +97,13 @@ public class CardDto {
 	public void setCard_image_path(String card_image_path) {
 		this.card_image_path = card_image_path;
 	}
+
+	@Override
+	public String toString() {
+		return "CardDto [id=" + id + ", localID=" + localID + ", card_name=" + card_name + ", card_type=" + card_type
+				+ ", description=" + description + ", score_value=" + score_value + ", card_image_path="
+				+ card_image_path + "]";
+	}
+	
 	
 }
