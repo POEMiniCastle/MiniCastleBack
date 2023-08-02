@@ -22,7 +22,6 @@ public class CardServices {
 	}
 	
 	public List<CardDto> randomlyPickNineCards(){
-		Random rand = new Random();
 		List<CardDto> draw = new ArrayList<>();
 		List<CardDto> temp = new ArrayList<>();
 		
@@ -33,9 +32,15 @@ public class CardServices {
 		}
 		
 		for (int i = 0; i <= 8; i++) {
-			int randomNumber = rand.nextInt(draw.size());
+			int randomNumber = getRandomNumber(draw.size());
 			temp.add(draw.get(randomNumber));
 		}
 		return temp;
+	}
+	
+	//Used to write test
+	private int getRandomNumber(int size) {
+		Random rand = new Random();
+		return rand.nextInt(size);
 	}
 }

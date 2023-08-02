@@ -22,7 +22,7 @@ public class CardController {
 
     @GetMapping("api/card")
     public List<Card> listAllCard(){ 
-    	return  service.getAllCards();
+    	return service.getAllCards();
     }
 
     @GetMapping("api/random")
