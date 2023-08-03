@@ -14,7 +14,7 @@ public class MonsterCardServices {
     private MonsterCardRepository repository;
 	
 	public MonsterDto getInformationMonster(Integer id) {
-		MonsterCard temp = repository.findMonstercardById(id);
+		MonsterCard temp = repository.findMonstercardByCardId(id);
 		return new MonsterDto(temp.getId(), temp.getDamage(), temp.getHp(), temp.getXpReward());
 		
 	}

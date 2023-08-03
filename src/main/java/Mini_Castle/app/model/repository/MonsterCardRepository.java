@@ -9,6 +9,6 @@ import java.util.List;
 public interface MonsterCardRepository extends JpaRepository<MonsterCard, Integer> {
     List<MonsterCard> findAllMonstercardByOrderByCardIdAsc();
 
-    MonsterCard findMonstercardById(int id);
+    MonsterCard findMonstercardByCardId(int id);
 	
 }
