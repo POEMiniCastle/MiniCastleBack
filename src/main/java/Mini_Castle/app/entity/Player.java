@@ -1,11 +1,20 @@
 package Mini_Castle.app.entity;
 
+import java.util.Collection;
+import java.util.Set;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "player")
 
-public class Player {
+public class Player implements UserDetails{
+	
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@Column(name = "player_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -77,5 +86,18 @@ public class Player {
 	public void setCharacter(Character character) {
 		this.character = character;
 	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() { return Set.of(); }
+	@Override
+	public boolean isAccountNonExpired() { return true; }
+	@Override
+	public boolean isAccountNonLocked() { return true; }
+	@Override
+	public boolean isCredentialsNonExpired() { return true; }
+	@Override
+	public boolean isEnabled() { return true; }
+	@Override
+	public String getPassword() { return this.passwd; }
 	
 }

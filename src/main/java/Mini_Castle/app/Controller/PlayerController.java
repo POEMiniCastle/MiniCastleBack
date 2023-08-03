@@ -3,19 +3,24 @@ package Mini_Castle.app.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
+import org.springframework.security.core.Authentication;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import Mini_Castle.app.Dto.ConnexionPlayerDto;
 import Mini_Castle.app.Dto.PlayerDto;
 import Mini_Castle.app.Dto.RegistrationPlayerDto;
 import Mini_Castle.app.Services.PlayerService;
+import Mini_Castle.app.entity.Player;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
 
 @CrossOrigin(origins = "http://localhost:4200")
-@Controller
+@RestController
 public class PlayerController {
 	
 	@Autowired
@@ -37,14 +42,25 @@ public class PlayerController {
 	}
 	
 	@PostMapping("/api/connexion")
-	public ResponseEntity<PlayerDto> connexion(@RequestBody ConnexionPlayerDto playerLogs) {
+	public ResponseEntity<PlayerDto> connexion(@Validated @RequestBody ConnexionPlayerDto playerLogs, HttpServletRequest request) {
 		if (!service.checkIfUsernameExists(playerLogs.getUsername())) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "There's no account with this username.");
 		}
-		PlayerDto player = service.connectToPlayer(playerLogs);
-		if(player == null) {
+		PlayerDto playerDto = service.connectToPlayer(playerLogs);
+		if(playerDto == null) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Wrong password");
 		}
-		return new ResponseEntity<PlayerDto>(player, HttpStatus.CREATED);
+		
+		try {
+		    request.login(playerLogs.getUsername(), playerLogs.getPasswd());
+		} catch (ServletException e) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Wrong password");
+		}
+		
+		Authentication auth = (Authentication) request.getUserPrincipal();
+		System.out.println( auth.getPrincipal());
+		
+		return new ResponseEntity<PlayerDto>(playerDto, HttpStatus.CREATED);
 	}
+	
 }

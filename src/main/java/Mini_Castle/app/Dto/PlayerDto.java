@@ -8,8 +8,6 @@ import Mini_Castle.app.entity.Character;
 public class PlayerDto {
 	private Integer id;
 
-	private String mail;
-
 	private String username;
 
 	private Integer bestScore;
@@ -19,7 +17,6 @@ public class PlayerDto {
 	
 	public PlayerDto(Player player) {
 		this.id = player.getId();
-		this.mail = player.getMail();
 		this.username = player.getUsername();
 		this.bestScore = player.getBestScore();
 		this.character = player.getCharacter();
@@ -27,7 +24,6 @@ public class PlayerDto {
 	
 	public PlayerDto(Integer id, String mail, String username, Integer bestScore) {
 		this.id = id;
-		this.mail = mail;
 		this.username = username;
 		this.bestScore = bestScore;
 	}
@@ -38,13 +34,6 @@ public class PlayerDto {
 	}
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	public String getMail() {
-		return mail;
-	}
-	public void setMail(String mail) {
-		this.mail = mail;
 	}
 
 	public String getUsername() {
@@ -78,7 +67,6 @@ public class PlayerDto {
 		if (getClass() != obj.getClass())
 			return false;
 		PlayerDto other = (PlayerDto) obj;
-		return Objects.equals(bestScore, other.bestScore) && Objects.equals(mail, other.mail)
-				&& Objects.equals(username, other.username);
+		return Objects.equals(bestScore, other.bestScore) && Objects.equals(username, other.username);
 	}
 }
