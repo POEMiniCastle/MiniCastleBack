@@ -1,21 +1,16 @@
 package Mini_Castle.app.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
-@Table(name = "trapCard")
-@NoArgsConstructor
-@Getter
-@Setter
+@Table(name = "trapcard")
 
 public class TrapCard {
 
-	@Id
-	@PrimaryKeyJoinColumn(name = "card_id")
-	private Integer Id;
+    @Id
+    @Column(name="trapcard_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
 	@Column(name = "skill_check")
 	private Integer skillCheck;
@@ -27,19 +22,21 @@ public class TrapCard {
 	@JoinColumn(name = "card_id", referencedColumnName = "card_id")
 	private Card card;
 
+	public TrapCard() {}
+
 	public TrapCard(Integer cardId, Integer skillCheck, Integer damage, Card card) {
-		this.Id = cardId;
+		this.id = cardId;
 		this.skillCheck = skillCheck;
 		this.damage = damage;
 		this.card = card;
 	}
 
-	public Integer getCardId() {
-		return Id;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setCardId(Integer cardId) {
-		this.Id = cardId;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public Integer getSkillCheck() {

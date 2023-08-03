@@ -1,20 +1,27 @@
 package Mini_Castle.app.Controller;
 
+import Mini_Castle.app.Dto.ClassStatsDto;
+import Mini_Castle.app.Services.ClassStatsServices;
 import Mini_Castle.app.entity.BaseClassStats;
-import Mini_Castle.app.model.repository.BaseClassRepository;
-import lombok.RequiredArgsConstructor;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @CrossOrigin("*")
-@RequiredArgsConstructor
-@RequestMapping("api/class")
+//@RequestMapping("api/class")
 
 public class BaseClassController {
-    private final BaseClassRepository repository;
+	@Autowired
+    private ClassStatsServices service;
 
-    @GetMapping
-    public List<BaseClassStats> listAllBaseClass(){ return  repository.findAllBaseClassByOrderByIdAsc();}
+    public List<BaseClassStats> listAllBaseClassStats(){
+        return service.getAllClassStats();
+    }
+
+    @GetMapping("api/class")
+    public List<ClassStatsDto> listAllBaseClass(){ 
+        return  service.findAllBaseClassByOrderByIdAsc();}
 }

@@ -3,20 +3,14 @@ package Mini_Castle.app.entity;
 import java.util.List;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Table(name = "character")
-@Getter
-@Setter
-@NoArgsConstructor
 
 public class Character {
 	@Id
 	@Column(name = "character_id")
-	private Integer Id;
+	private Integer id;
 
 	@Column(name = "level")
 	private Integer level;
@@ -38,4 +32,63 @@ public class Character {
 	@OneToOne
 	@JoinColumn(name = "character_id")
 	private Inventory inventory;
+
+	public Character(){}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Integer getLevel() {
+		return level;
+	}
+
+	public void setLevel(Integer level) {
+		this.level = level;
+	}
+
+	public Integer getXp() {
+		return xp;
+	}
+
+	public void setXp(Integer xp) {
+		this.xp = xp;
+	}
+
+	public Player getPlayer() {
+		return player;
+	}
+
+	public void setPlayer(Player player) {
+		this.player = player;
+	}
+
+	public BaseClassStats getClassStats() {
+		return classStats;
+	}
+
+	public void setClassStats(BaseClassStats classStats) {
+		this.classStats = classStats;
+	}
+
+	public List<Gear> getGearList() {
+		return gearList;
+	}
+
+	public void setGearList(List<Gear> gearList) {
+		this.gearList = gearList;
+	}
+
+	public Inventory getInventory() {
+		return inventory;
+	}
+
+	public void setInventory(Inventory inventory) {
+		this.inventory = inventory;
+	}
+	
 }

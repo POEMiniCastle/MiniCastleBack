@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface BaseClassRepository extends JpaRepository<BaseClassStats, Integer> {
     List<BaseClassStats> findAllBaseClassByOrderByIdAsc();
-    BaseClassStats findBaseClassById(int id);
+    List<BaseClassStats> findAll();
+    BaseClassStats findBaseClassById(Integer id);
 }

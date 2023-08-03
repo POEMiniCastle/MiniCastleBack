@@ -4,6 +4,25 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+
+local.properties
+.settings/
+.loadpath
+.recommenders
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
 ### STS ###
 .apt_generated
 .classpath
@@ -31,3 +50,10 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Docker ###
+docker-compose.yml
+*.env
+mybb/
+mariadb/
+postgres/
