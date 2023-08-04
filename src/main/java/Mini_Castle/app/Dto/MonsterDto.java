@@ -1,5 +1,7 @@
 package Mini_Castle.app.Dto;
 
+import Mini_Castle.app.entity.MonsterCard;
+
 public class MonsterDto {
 	
 	private Integer id;
@@ -16,6 +18,13 @@ public class MonsterDto {
 	}
 	
 	public MonsterDto() {}
+	
+	public MonsterDto(MonsterCard card) {
+		this.id = card.getId();
+		this.damage = card.getDamage();
+		this.hp = card.getHp();
+		this.xpReward = card.getXpReward();
+	}
 	
 	public Integer getId() {
 		return id;
