@@ -99,5 +99,19 @@ public class Player implements UserDetails{
 	public boolean isEnabled() { return true; }
 	@Override
 	public String getPassword() { return this.passwd; }
+
+	@Override
+	public String toString() {
+		return "Player [id=" + id + ", mail=" + mail + ", username=" + username + ", passwd=" + passwd + ", bestScore="
+				+ bestScore + ", character=" + character + "]";
+	}
+	
+	public String stringify() {
+		return "{'id': " + this.id 
+				+ ", 'username':" + this.username
+				+ ", 'bestScore':" + this.bestScore
+				+ ", 'character':" + this.character
+				+ "}";
+	}
 	
 }

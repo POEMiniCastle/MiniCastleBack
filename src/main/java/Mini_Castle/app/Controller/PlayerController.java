@@ -1,5 +1,8 @@
 package Mini_Castle.app.Controller;
 
+import java.util.Map;
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,15 +22,15 @@ import Mini_Castle.app.entity.Player;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 @RestController
 public class PlayerController {
 	
 	@Autowired
 	private PlayerService service;
 	
-	@PostMapping("/api/registration")
-	public ResponseEntity<PlayerDto> register(@RequestBody RegistrationPlayerDto playerDto) {
+	@PostMapping(path = "/registration")
+	public ResponseEntity<Map<String, String>> register(@RequestBody RegistrationPlayerDto playerDto, HttpServletRequest request) throws ServletException {
 		if(playerDto.getUsername() == null || playerDto.getUsername().isEmpty()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Name is empty");
 		} else if(playerDto.getMail() == null || playerDto.getMail().isEmpty()) {
@@ -38,19 +41,26 @@ public class PlayerController {
 		if (service.checkIfMailExists(playerDto.getMail()) || service.checkIfUsernameExists(playerDto.getUsername())) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Mail or username already exists");
 		}
-		return new ResponseEntity<PlayerDto>(service.createPlayer(playerDto), HttpStatus.CREATED);
+		
+		Player player = service.createPlayer(playerDto);
+		
+		request.login(playerDto.getUsername(), playerDto.getPasswd());
+		
+		Authentication auth = (Authentication) request.getUserPrincipal();
+		
+		HashMap<String, String> res = new HashMap<>();
+		res.put("token", service.generateToken(auth, player));
+		
+		return new ResponseEntity<Map<String, String>>(res, HttpStatus.CREATED);
 	}
 	
-	@PostMapping("/api/connexion")
-	public ResponseEntity<PlayerDto> connexion(@Validated @RequestBody ConnexionPlayerDto playerLogs, HttpServletRequest request) {
+	@PostMapping(path = "/connexion")
+	public ResponseEntity<Map<String, String>> connexion(@Validated @RequestBody ConnexionPlayerDto playerLogs, HttpServletRequest request) {
+		System.out.println("Je passe ici !");
 		if (!service.checkIfUsernameExists(playerLogs.getUsername())) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "There's no account with this username.");
 		}
-		PlayerDto playerDto = service.connectToPlayer(playerLogs);
-		if(playerDto == null) {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Wrong password");
-		}
-		
+		Player player = service.connectToPlayer(playerLogs);
 		try {
 		    request.login(playerLogs.getUsername(), playerLogs.getPasswd());
 		} catch (ServletException e) {
@@ -58,9 +68,10 @@ public class PlayerController {
 		}
 		
 		Authentication auth = (Authentication) request.getUserPrincipal();
-		System.out.println( auth.getPrincipal());
 		
-		return new ResponseEntity<PlayerDto>(playerDto, HttpStatus.CREATED);
+		HashMap<String, String> res = new HashMap<>();
+		res.put("token", service.generateToken(auth, player));
+		return new ResponseEntity<Map<String, String>>(res, HttpStatus.CREATED);
 	}
 	
 }
