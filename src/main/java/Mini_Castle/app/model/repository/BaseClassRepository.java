@@ -1,5 +1,6 @@
 package Mini_Castle.app.model.repository;
 
+import Mini_Castle.app.Dto.ClassStatsDto;
 import Mini_Castle.app.entity.BaseClassStats;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -9,4 +10,4 @@ public interface BaseClassRepository extends JpaRepository<BaseClassStats, Integ
     List<BaseClassStats> findAllBaseClassByOrderByIdAsc();
     List<BaseClassStats> findAll();
     BaseClassStats findBaseClassById(Integer id);
-}
+}   

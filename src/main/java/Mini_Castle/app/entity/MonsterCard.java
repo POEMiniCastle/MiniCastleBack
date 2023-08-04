@@ -19,7 +19,7 @@ public class MonsterCard {
 	private Integer hp;
 
 	@Column(name = "xp_reward")
-	private Integer xpReward;
+	private Integer xp_reward;
 
 	@OneToOne
 	@JoinColumn(name = "card_id", referencedColumnName = "card_id")
@@ -27,11 +27,11 @@ public class MonsterCard {
 
 	public MonsterCard() {}
 	
-	public MonsterCard(Integer cardId, Integer damage, Integer hp, Integer xpReward, Card card) {
+	public MonsterCard(Integer cardId, Integer damage, Integer hp, Integer xp_reward, Card card) {
 		this.id = cardId;
 		this.damage = damage;
 		this.hp = hp;
-		this.xpReward = xpReward;
+		this.xp_reward = xp_reward;
 		this.card = card;
 	}
 
@@ -60,11 +60,11 @@ public class MonsterCard {
 	}
 
 	public Integer getXpReward() {
-		return xpReward;
+		return xp_reward;
 	}
 
-	public void setXpReward(Integer xpReward) {
-		this.xpReward = xpReward;
+	public void setXpReward(Integer xp_reward) {
+		this.xp_reward = xp_reward;
 	}
 
 	public Card getCard() {

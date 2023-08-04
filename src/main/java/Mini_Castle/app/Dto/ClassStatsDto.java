@@ -1,5 +1,7 @@
 package Mini_Castle.app.Dto;
 
+import Mini_Castle.app.entity.BaseClassStats;
+
 public class ClassStatsDto {
 
     private Integer id;
@@ -12,7 +14,16 @@ public class ClassStatsDto {
     private String imagePath;
 
     public ClassStatsDto(){}
-
+    public ClassStatsDto(BaseClassStats baseClassStats){
+        this.id = baseClassStats.getId();
+        this.name = baseClassStats.getName();
+        this.base_hp = baseClassStats.getBase_hp();
+        this.base_armor = baseClassStats.getBase_armor();
+        this.base_damage = baseClassStats.getBase_damage();
+        this.skill_name = baseClassStats.getSkill_name();
+        this.skill_description = baseClassStats.getSkill_description();
+        this.imagePath = baseClassStats.getImagePath();
+    }
     public ClassStatsDto(Integer id, String name, Integer base_hp, Integer base_armor, Integer base_damage,
             String skill_name, String skill_description, String imagePath) {
         this.id = id;

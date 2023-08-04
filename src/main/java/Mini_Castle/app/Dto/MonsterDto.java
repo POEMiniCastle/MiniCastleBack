@@ -5,14 +5,14 @@ public class MonsterDto {
 	private Integer id;
 	private Integer damage;
 	private Integer hp;
-	private Integer xpReward;
+	private Integer xp_reward;
 	
 	
-	public MonsterDto(Integer id, Integer damage, Integer hp, Integer xpReward) {
+	public MonsterDto(Integer id, Integer damage, Integer hp, Integer xp_reward) {
 		this.id = id;
 		this.damage = damage;
 		this.hp = hp;
-		this.xpReward = xpReward;
+		this.xp_reward = xp_reward;
 	}
 	
 	public MonsterDto() {}
@@ -35,11 +35,11 @@ public class MonsterDto {
 	public void setHp(Integer hp) {
 		this.hp = hp;
 	}
-	public Integer getXpReward() {
-		return xpReward;
+	public Integer getXp_reward() {
+		return xp_reward;
 	}
-	public void setXpReward(Integer xpReward) {
-		this.xpReward = xpReward;
+	public void setXp_reward(Integer xp_reward) {
+		this.xp_reward = xp_reward;
 	}
 	
 	
