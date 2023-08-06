@@ -8,7 +8,7 @@ import jakarta.persistence.*;
 public class MonsterCard {
 
 	@Id
-    @Column(name="monsterCard_id")
+    @Column(name="monstercard_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 

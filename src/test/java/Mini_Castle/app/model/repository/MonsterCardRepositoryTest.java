@@ -41,7 +41,7 @@ public class MonsterCardRepositoryTest {
 	@Test
 	@Sql("given3MonsterCards_WhenFindAllCardByOrderByIdAsc_ShouldReturnCardsInOrder.sql")
 	public void given3MonsterCards_WhenFindCardById_ShouldReturnMonsterCardWithCorrespondingId() {
-		MonsterCard card = repository.findMonstercardById(1);
+		MonsterCard card = repository.findMonstercardByCardId(1);
 		assertEquals(1, card.getId());
 	}
 }

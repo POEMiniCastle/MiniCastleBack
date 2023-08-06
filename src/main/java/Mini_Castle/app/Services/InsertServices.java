@@ -20,6 +20,7 @@ public class InsertServices {
 	@Autowired
 	MonsterCardRepository monsterRepository;
 	
+	
 	public CardDto insertIntoCard(CardCreationDto card) {
 		Card cardTemp = new Card();
 		cardTemp.setCard_name(card.getCard().getCard_name());
@@ -27,7 +28,6 @@ public class InsertServices {
 		cardTemp.setCard_type(card.getCard().getCard_type());
 		cardTemp.setScore_value(card.getCard().getScore_value());
 		cardTemp.setCard_image_path(card.getCard().getCard_image_path());
-		
 		repository.save(cardTemp);
 		return new CardDto(cardTemp);
 	}
@@ -39,9 +39,19 @@ public class InsertServices {
 		monsterTemp.setHp(card.getMonster().getHp());
 		monsterTemp.setXpReward(card.getMonster().getXpReward());
 		monsterTemp.setCard(cardTemp);
+		monsterTemp.setId(cardTemp.getId());
 		
 		monsterRepository.save(monsterTemp);
 		return new MonsterDto(monsterTemp);
 		
 	}
+	
+	public boolean checkIfExist(String name) {
+		if(repository.findCardByCardName(name) != null) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
 }

@@ -5,9 +5,9 @@ public class CardCreationDto {
 	private CardDto card;
 	private MonsterDto monster;
 	
-	CardCreationDto() {}
+	public CardCreationDto() {}
 	
-	CardCreationDto(CardDto card, MonsterDto monster){
+	public CardCreationDto(CardDto card, MonsterDto monster){
 		this.card = card;
 		this.monster = monster;
 	}

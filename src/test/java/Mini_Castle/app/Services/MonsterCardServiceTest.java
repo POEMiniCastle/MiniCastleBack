@@ -27,19 +27,19 @@ public class MonsterCardServiceTest {
 	
 	@Test
 	public void givenMonsterCard_WhenGetInformationMonster_ShouldReturnDtoWithSameId() {
-		Mockito.when(repository.findMonstercardById(anyInt())).thenReturn(testCard);
+		Mockito.when(repository.findMonstercardByCardId(anyInt())).thenReturn(testCard);
 		assertEquals(testCard.getId(), service.getInformationMonster(1).getId());
 	}
 	
 	@Test
 	public void givenMonsterCard_WhenGetInformationMonster_ShouldReturnDtoWithSameDamage() {
-		Mockito.when(repository.findMonstercardById(anyInt())).thenReturn(testCard);
+		Mockito.when(repository.findMonstercardByCardId(anyInt())).thenReturn(testCard);
 		assertEquals(testCard.getDamage(), service.getInformationMonster(1).getDamage());
 	}
 	
 	@Test
 	public void givenMonsterCard_WhenGetInformationMonster_ShouldReturnDtoWithSameHp() {
-		Mockito.when(repository.findMonstercardById(anyInt())).thenReturn(testCard);
+		Mockito.when(repository.findMonstercardByCardId(anyInt())).thenReturn(testCard);
 		assertEquals(testCard.getHp(), service.getInformationMonster(1).getHp());
 	}
 	
