@@ -24,11 +24,21 @@ public class InsertBDDController {
 		if(!(service.checkIfExist(cardCreationDto.getCard().getCard_name()))) {
 			CardCreationDto cardTemp = new CardCreationDto();
 			cardTemp.setCard(service.insertIntoCard(cardCreationDto));
+			
 				if(service.checkIfExist(cardTemp.getCard().getCard_name())){
-					cardTemp.setMonster(service.insertMonster(cardCreationDto));
-					return new ResponseEntity<CardCreationDto>(cardTemp, HttpStatus.CREATED);
+					
+					if(cardTemp.getCard().getCard_type().equalsIgnoreCase("Monster")) {
+						cardTemp.setMonster(service.insertMonster(cardCreationDto));
+						return new ResponseEntity<CardCreationDto>(cardTemp, HttpStatus.CREATED);
+					} else if (cardTemp.getCard().getCard_type().equalsIgnoreCase("Trap")) {
+						cardTemp.setTrap(service.insertTrap(cardCreationDto));
+						return new ResponseEntity<CardCreationDto>(cardTemp, HttpStatus.CREATED);
+					} else {
+						throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Wrong Type");
+					}
+					
 				} else {
-					throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Manque Monstre");
+					throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Miss monster info ");
 				}
 			
 		} else {

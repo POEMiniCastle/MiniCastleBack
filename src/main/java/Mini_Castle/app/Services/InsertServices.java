@@ -6,10 +6,13 @@ import org.springframework.stereotype.Service;
 import Mini_Castle.app.Dto.CardCreationDto;
 import Mini_Castle.app.Dto.CardDto;
 import Mini_Castle.app.Dto.MonsterDto;
+import Mini_Castle.app.Dto.TrapDto;
 import Mini_Castle.app.entity.Card;
 import Mini_Castle.app.entity.MonsterCard;
+import Mini_Castle.app.entity.TrapCard;
 import Mini_Castle.app.model.repository.CardRepository;
 import Mini_Castle.app.model.repository.MonsterCardRepository;
+import Mini_Castle.app.model.repository.TrapCardRepository;
 
 @Service
 public class InsertServices {
@@ -20,6 +23,8 @@ public class InsertServices {
 	@Autowired
 	MonsterCardRepository monsterRepository;
 	
+	@Autowired 
+	TrapCardRepository trapRepository;
 	
 	public CardDto insertIntoCard(CardCreationDto card) {
 		Card cardTemp = new Card();
@@ -44,6 +49,18 @@ public class InsertServices {
 		monsterRepository.save(monsterTemp);
 		return new MonsterDto(monsterTemp);
 		
+	}
+	
+	public TrapDto insertTrap(CardCreationDto card) {
+		Card cardTemp = repository.findCardByCardName(card.getCard().getCard_name());
+		TrapCard trapTemp = new TrapCard();
+		trapTemp.setDamage(card.getTrap().getDamage());
+		trapTemp.setCard(cardTemp);
+		trapTemp.setSkillCheck(card.getTrap().getSkillCheck());
+		trapTemp.setId(cardTemp.getId());
+		
+		trapRepository.save(trapTemp);
+		return new TrapDto(trapTemp);
 	}
 	
 	public boolean checkIfExist(String name) {
