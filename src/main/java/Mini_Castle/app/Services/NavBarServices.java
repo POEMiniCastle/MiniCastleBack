@@ -12,7 +12,7 @@ public class NavBarServices {
 
 	public List<NavBarDto> getAllContent(){
 		List<NavBarDto> navAll = new ArrayList<>();
-		navAll.add(new NavBarDto("", "explore", "Home"));
+		navAll.add(new NavBarDto("play-menu", "explore", "Home"));
 		navAll.add(new NavBarDto("play", "skull", "Play"));
 		navAll.add(new NavBarDto("deconnexion", "logout", "LogOut"));
 		return navAll;
