@@ -19,6 +19,10 @@ public class ClassStatsServices {
     public List<BaseClassStats> getAllClassStats(){
         return repository.findAll();
     }
+        public ClassStatsDto getAllClassStatsById(Integer id){
+            ClassStatsDto baseClass = new ClassStatsDto(repository.findBaseClassById(id));
+        return baseClass;
+    }
 
     public List<ClassStatsDto> findAllBaseClassByOrderByIdAsc(){
         List<ClassStatsDto> baseClass = new ArrayList<>();

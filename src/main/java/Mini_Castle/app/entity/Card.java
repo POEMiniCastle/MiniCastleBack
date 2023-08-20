@@ -15,7 +15,7 @@ public class Card {
     private Integer id;
 
     @Column(name="card_name")
-    private String card_name;
+    private String cardName;
 
     @Column(name="card_type")
     private String card_type;
@@ -39,7 +39,7 @@ public class Card {
     public Card(Integer card_id, String card_name, String card_type, String description, Integer score_value,
             String card_image_path) {
         this.id = card_id;
-        this.card_name = card_name;
+        this.cardName = card_name;
         this.card_type = card_type;
         this.description = description;
         this.score_value = score_value;
@@ -57,11 +57,11 @@ public class Card {
 	}
 
 	public String getCard_name() {
-		return card_name;
+		return cardName;
 	}
 
 	public void setCard_name(String card_name) {
-		this.card_name = card_name;
+		this.cardName = card_name;
 	}
 
 	public String getCard_type() {

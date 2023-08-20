@@ -1,5 +1,7 @@
 package Mini_Castle.app.Dto;
 
+import Mini_Castle.app.entity.TrapCard;
+
 public class TrapDto {
 
 	private Integer id;
@@ -14,6 +16,13 @@ public class TrapDto {
 	
 	public TrapDto() {}
 
+	public TrapDto(TrapCard trap) {
+		this.id = trap.getId();
+		this.damage = trap.getDamage();
+		this.skillCheck = trap.getSkillCheck();
+	}
+	
+	
 	public Integer getId() {
 		return id;
 	}
