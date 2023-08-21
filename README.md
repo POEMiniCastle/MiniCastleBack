@@ -16,10 +16,15 @@ On the dashboard click on `Add New Server`
 Name : `MiniCastle`
 ##### Go in the connection tab
 Hostname : `postgres-compose`
+
 Port : `5432`
+
 Maintenance database : `postgres`
+
 Username : `postgres`
+
 Password : `T*WCHEhUny7ZE#nG4LQv4*ZLdPH#EoZcR9LxzVSHpyUedJitmDkXA^h@tQ#gsJWFnRJdzuc&kXT^G3LxJ!mrk4vBexHDyd#oxzxhCg8KpJpt8yY5gH^tWpzWJh2#sq3y`
+
 ### Create database
 - MiniCastleBDD > Database (1) > postgres > Schemas > public
 Right click on public, the Query Tool.
