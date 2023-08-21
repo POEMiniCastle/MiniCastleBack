@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import Mini_Castle.app.Dto.ConnexionPlayerDto;
-import Mini_Castle.app.Dto.PlayerDto;
 import Mini_Castle.app.Dto.RegistrationPlayerDto;
 import Mini_Castle.app.Services.PlayerService;
 import Mini_Castle.app.entity.Player;
@@ -56,7 +55,6 @@ public class PlayerController {
 	
 	@PostMapping(path = "/connexion")
 	public ResponseEntity<Map<String, String>> connexion(@Validated @RequestBody ConnexionPlayerDto playerLogs, HttpServletRequest request) {
-		System.out.println("Je passe ici !");
 		if (!service.checkIfUsernameExists(playerLogs.getUsername())) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "There's no account with this username.");
 		}
