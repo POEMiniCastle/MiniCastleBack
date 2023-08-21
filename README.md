@@ -3,14 +3,21 @@
 ## How to use
 
 Install [docker](https://www.docker.com/).
+
 Run it.
+
 Open a widows command  at the root of the project
+
  Type `docker compose up`
  
  PGAdmin is now accessible at : [http://localhost:16543](http://localhost:16543).
+ 
  Default credentials :
+ 
  Username : `email@gmail.com`
+ 
 Password : `rVrP6kucvgm%JPMkDoYSfvB3tPXUgP4^DMwZY6K3r@VgD!ot7spH8hhUH@jpWMGxx#CnTe794Vt%2apfRxm8bo4o^Wc!U&uTUtKGC!cKwekrtFFQWj&jpc7dG6!CCxLt`
+
 ### Add the server
 On the dashboard click on `Add New Server` 
 Name : `MiniCastle`
